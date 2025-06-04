@@ -6,26 +6,53 @@ class ContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Container Widget")),
-      body: Center(
-        //put any widget at the center of it's parent
-        child: Container(
-          //Contain any widget to draw a decoration around it
-          height: 100,
-          width: 100,
-          //alignment for the Container's content
-          alignment: Alignment.center,
-          //all decoration for the Container like: border, color, raduis and so on...
-          decoration: BoxDecoration(
-            color: Colors.red,
-            // border: Border.all(color: Colors.green, width: 7),
-            border: Border(
-              bottom: BorderSide(color: Colors.green, width: 7),
-              top: BorderSide(color: Colors.blue, width: 7),
-              left: BorderSide(color: Colors.black, width: 7),
-              right: BorderSide(color: Colors.yellow, width: 7),
-            ),
+      appBar: AppBar(
+        title: Text("Container Widget"),
+        backgroundColor: Colors.green,
+      ),
+      body: Container(
+        //Contain any widget to draw a decoration around it
+        height: 480,
+        width: 400,
+        //If you want to take a space from outside the Container
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        //If you want to take a space from inside the Container
+        padding: EdgeInsets.only(top: 30, right: 30),
+        //alignment for the Container's content
+        alignment: Alignment.center,
+        //all decoration for the Container like: border, color, raduis and so on...
+        decoration: BoxDecoration(
+          color: Colors.red,
+          gradient: LinearGradient(
+            colors: [Colors.red, Colors.purple],
+            begin: Alignment.bottomRight,
+            end: Alignment.topLeft,
           ),
+          border: Border.all(color: Colors.blue, width: 7),
+
+          //To set raduis for Container
+          borderRadius: BorderRadius.circular(50),
+
+          //if you want to make the Container rectangle or circle
+          // shape: BoxShape.rectangle,
+
+          //If you want shadow for Container you can use it
+          boxShadow: [
+            BoxShadow(blurRadius: 50, spreadRadius: 10, color: Colors.blue),
+            BoxShadow(blurRadius: 50, spreadRadius: 10, color: Colors.black),
+            BoxShadow(blurRadius: 50, spreadRadius: 10, color: Colors.red),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(height: 100, width: 100, color: Colors.blue),
+            //If you want to take a space from any side between widgets
+            SizedBox(height: 10),
+            Container(height: 100, width: 100, color: Colors.blue),
+            SizedBox(height: 10),
+            Container(height: 100, width: 100, color: Colors.blue),
+          ],
         ),
       ),
     );

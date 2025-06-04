@@ -11,6 +11,10 @@ class RowWidget extends StatelessWidget {
         //Row put the widgets horizantal
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+        ///To make the Row take it's width depends on children
+        ///and not to take the whole width
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(height: 50, width: 50, color: Colors.red),
           Container(height: 50, width: 50, color: Colors.blue),

@@ -13,6 +13,10 @@ class ColumnWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         //for virtical behavior
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+        ///To make the Column take it's height depends on children
+        ///and not to take the whole height
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(height: 100, width: 100, color: Colors.red),
           Container(height: 100, width: 100, color: Colors.blue),

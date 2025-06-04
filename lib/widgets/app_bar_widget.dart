@@ -33,6 +33,13 @@ class AppBarWidget extends StatelessWidget {
           Icon(Icons.notifications, size: 24, color: Colors.white),
           Icon(Icons.shopping_cart, size: 24, color: Colors.white),
         ],
+        //If you want to set raduis for appBar
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10),
+            bottomRight: Radius.circular(10),
+          ),
+        ),
       ),
     );
   }
