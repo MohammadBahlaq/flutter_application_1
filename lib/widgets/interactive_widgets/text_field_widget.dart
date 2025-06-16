@@ -13,9 +13,13 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   ///UniqueKey()
   ///Local Key
 
-  // GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late GlobalKey<FormState> formKey;
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    formKey = GlobalKey<FormState>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
