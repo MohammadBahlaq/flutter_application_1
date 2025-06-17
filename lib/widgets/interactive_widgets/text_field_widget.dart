@@ -14,11 +14,18 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   ///Local Key
 
   late GlobalKey<FormState> formKey;
+  late TextEditingController textCrt;
 
   @override
   void initState() {
     formKey = GlobalKey<FormState>();
+    textCrt = TextEditingController(text: 'Mohammad Bahlaq');
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -36,13 +43,19 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           child: Column(
             children: [
               TextFormField(
+                controller: textCrt,
                 onSaved: (newValue) {
                   print("onSaved1");
                 },
                 validator: (value) {
                   if ((value ?? '').isEmpty) return 'Null text';
-
                   return null;
+                },
+                onTap: () {
+                  textCrt.selection = TextSelection(
+                    baseOffset: 0,
+                    extentOffset: textCrt.text.length,
+                  );
                 },
               ),
               SizedBox(height: 10),
@@ -52,17 +65,16 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 },
                 validator: (value) {
                   if ((value ?? '').length < 8) return 'less than 8';
-
                   return null;
                 },
               ),
-
               TextButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    print("Signup");
+                    formKey.currentState!.save();
+                    print(textCrt.text);
+                    textCrt.clear();
                   }
-                  // formKey.currentState!.save();
                 },
                 child: Text("Submit"),
               ),
