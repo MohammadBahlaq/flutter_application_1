@@ -164,7 +164,7 @@ class CustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 80,
       width: double.infinity,
       color: Colors.red,
       margin: EdgeInsets.only(bottom: 10),
