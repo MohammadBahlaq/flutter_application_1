@@ -2,6 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/packages/lottie_package.dart';
+import 'package:flutter_application_1/packages/permission_handler_package.dart';
+import 'package:flutter_application_1/packages/secure_storge_2.dart';
+import 'package:flutter_application_1/packages/secure_storge_package.dart';
+import 'package:flutter_application_1/packages/shared_preferences_package.dart';
+import 'package:flutter_application_1/packages/svg_package.dart';
 import 'package:flutter_application_1/packages/url_lanucher_package.dart';
 import 'package:flutter_application_1/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_application_1/widgets/navigation_widgets/bottom_navigation_bar_widget.dart';
@@ -15,15 +21,26 @@ import 'package:flutter_application_1/widgets/responsive_widgets/wrap_widget.dar
 import 'package:flutter_application_1/widgets/show_methods.dart';
 import 'package:flutter_application_1/widgets/tile_widgets/radio_list_tile_widget.dart';
 import 'package:flutter_application_1/widgets/tile_widgets/switch_list_tile_widget.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_navigation/short_navigation.dart';
 
-void main() {
+late SharedPreferences prefs;
+late FlutterSecureStorage secureStorage;
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitDown,
-  //   DeviceOrientation.portraitUp,
-  // ]);
+  prefs = await SharedPreferences.getInstance();
+
+  secureStorage = FlutterSecureStorage(
+    aOptions: const AndroidOptions(encryptedSharedPreferences: true),
+  );
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
 
   runApp(const MyApp());
 }
@@ -39,7 +56,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: UrlLanucherPackage(),
+      home: PermissionHandlerPackage(),
       routes: {
         'pageOne': (_) => PageOne(),
         'pageTwo': (_) => PageTwo(),

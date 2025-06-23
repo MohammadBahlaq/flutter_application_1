@@ -18,7 +18,7 @@ class ListViewWidget extends StatelessWidget {
       //     children: [
       //       Text('Student Data'),
       //       SizedBox(
-      //         height: 500, //TODO: fill the rest of height next lessons
+      //         height: 500,
       //         child: ListView.separated(
       //           padding: EdgeInsets.symmetric(horizontal: 20),
       //           scrollDirection: Axis.vertical,
