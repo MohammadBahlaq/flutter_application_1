@@ -2,13 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- This line for url_launcher package -->
 	<key>LSApplicationQueriesSchemes</key>
 		<array>
   		<string>sms</string>
   		<string>tel</string>
 		</array>
 
+	<!-- Permision for camera -->
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera</string>
 
+	<!-- Permisions for location -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide location-based services.</string>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your location even when the app is in the background.</string>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to improve service quality.</string>
 
 
 

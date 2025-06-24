@@ -21,6 +21,7 @@ class _SharedPreferencesPackageState extends State<SharedPreferencesPackage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
       appBar: AppBar(title: Text('SharedPreferences package')),
       floatingActionButton: FloatingActionButton(
@@ -31,7 +32,33 @@ class _SharedPreferencesPackageState extends State<SharedPreferencesPackage> {
           setState(() {});
         },
       ),
-      body: Center(child: Text('$counter', style: TextStyle(fontSize: 30))),
+      body: Column(
+        children: [
+          Container(height: 100, width: 100, color: Colors.red),
+          MyWidget(),
+        ],
+      ),
+      // body: Center(child: Text('$counter', style: TextStyle(fontSize: 30))),
+    );
+  }
+}
+
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    print('ElevatedButton rebuild');
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {});
+      },
+      child: Text('Rebuild widget'),
     );
   }
 }

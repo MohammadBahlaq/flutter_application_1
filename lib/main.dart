@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/packages/geolocator_package.dart';
 import 'package:flutter_application_1/packages/lottie_package.dart';
 import 'package:flutter_application_1/packages/permission_handler_package.dart';
 import 'package:flutter_application_1/packages/secure_storge_2.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_application_1/packages/secure_storge_package.dart';
 import 'package:flutter_application_1/packages/shared_preferences_package.dart';
 import 'package:flutter_application_1/packages/svg_package.dart';
 import 'package:flutter_application_1/packages/url_lanucher_package.dart';
+import 'package:flutter_application_1/provider/provider_package.dart';
 import 'package:flutter_application_1/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_application_1/widgets/navigation_widgets/bottom_navigation_bar_widget.dart';
 import 'package:flutter_application_1/widgets/navigation_widgets/navigation.dart';
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PermissionHandlerPackage(),
+      home: ProviderPackage(),
       routes: {
         'pageOne': (_) => PageOne(),
         'pageTwo': (_) => PageTwo(),
