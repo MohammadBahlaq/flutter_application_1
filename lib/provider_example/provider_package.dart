@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/provider/counter_controller.dart';
+import 'package:flutter_application_1/provider_example/counter_controller.dart';
 import 'package:provider/provider.dart';
 
 class ProviderPackage extends StatelessWidget {
