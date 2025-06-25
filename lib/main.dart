@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/api_example/posts/view/posts_view.dart';
 import 'package:flutter_application_1/packages/geolocator_package.dart';
 import 'package:flutter_application_1/packages/lottie_package.dart';
 import 'package:flutter_application_1/packages/permission_handler_package.dart';
@@ -54,11 +55,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      navigatorKey: Go.navigatorKey,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ProviderPackage(),
+      home: PostsView(),
       routes: {
         'pageOne': (_) => PageOne(),
         'pageTwo': (_) => PageTwo(),
