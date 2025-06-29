@@ -26,6 +26,8 @@ class GeolocatorPackage extends StatelessWidget {
 
             Position position = await Geolocator.getCurrentPosition();
 
+            position.isMocked;
+
             print(
               "latitude: ${position.latitude} , longitude: ${position.longitude}",
             );

@@ -28,6 +28,10 @@ class AppBarWidget extends StatelessWidget {
         leadingWidth: 100,
         //a little shadow at the bottom of AppBar
         elevation: 10,
+        //You have to pass it to show elevation
+        shadowColor: Colors.purple,
+        //The elevation when body start to scroll under AppBar
+        scrolledUnderElevation: 10,
         //any actions you want like notifications, user image, shopping cart and so on...
         actions: [
           Icon(Icons.notifications, size: 24, color: Colors.white),

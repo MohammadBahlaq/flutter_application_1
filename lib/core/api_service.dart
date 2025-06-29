@@ -26,7 +26,7 @@ abstract class ApiService {
     return jsonDecode(response.body);
   }
 
-  static Future<List<dynamic>> post(
+  static Future<Map<String, dynamic>> post(
     String endpoint, {
     Map<String, String>? body,
     Map<String, String>? header,
@@ -38,7 +38,9 @@ abstract class ApiService {
 
     final Uri uri = Uri.parse('$_baseUrl/$endpoint');
 
-    response = await http.post(uri, headers: header, body: jsonEncode(body));
+    response = await http
+        .post(uri, headers: header, body: jsonEncode(body))
+        .timeout(Duration(seconds: 5));
 
     return jsonDecode(response.body);
   }

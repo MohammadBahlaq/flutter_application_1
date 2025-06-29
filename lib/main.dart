@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/api_example/posts/controller/post_controller.dart';
 import 'package:flutter_application_1/api_example/posts/view/posts_view.dart';
 import 'package:flutter_application_1/packages/geolocator_package.dart';
 import 'package:flutter_application_1/packages/lottie_package.dart';
@@ -25,6 +26,7 @@ import 'package:flutter_application_1/widgets/show_methods.dart';
 import 'package:flutter_application_1/widgets/tile_widgets/radio_list_tile_widget.dart';
 import 'package:flutter_application_1/widgets/tile_widgets/switch_list_tile_widget.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_navigation/short_navigation.dart';
 
@@ -53,19 +55,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: Go.navigatorKey,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   navigatorKey: Go.navigatorKey,
+    //   theme: ThemeData(
+    //     useMaterial3: true,
+    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    //   ),
+    //   home: PostsView(),
+    //   routes: {
+    //     'pageOne': (_) => PageOne(),
+    //     'pageTwo': (_) => PageTwo(),
+    //     'pageThree': (_) => PageThree(),
+    //   },
+    // );
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PostController()..getPosts()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: Go.navigatorKey,
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: PostsView(),
+        routes: {
+          'pageOne': (_) => PageOne(),
+          'pageTwo': (_) => PageTwo(),
+          'pageThree': (_) => PageThree(),
+        },
       ),
-      home: PostsView(),
-      routes: {
-        'pageOne': (_) => PageOne(),
-        'pageTwo': (_) => PageTwo(),
-        'pageThree': (_) => PageThree(),
-      },
     );
   }
 }
